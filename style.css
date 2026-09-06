@@ -1,0 +1,684 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* XÓA 2 BLOCK BODY CŨ VÀ THAY BẰNG BLOCK NÀY */
+body {
+    background-color: #f0f0f0; /* Màu nền xám nhạt cho phần thừa trên PC */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Căn giữa app theo chiều ngang */
+}
+
+/* Khung app: Tràn viền trên điện thoại, khóa kích thước trên PC */
+.app-container {
+    width: 100%; 
+    max-width: 500px; 
+    background-color: #fff;
+    min-height: 100vh;
+    position: relative;
+    
+    /* THÊM/SỬA 2 DÒNG NÀY ĐỂ TRÁNH BỊ ĐÈ NỘI DUNG */
+    padding-top: 60px; /* Đẩy nội dung xuống bằng đúng chiều cao của Header */
+    padding-bottom: 80px; /* Đẩy nội dung lên bằng đúng chiều cao của Bottom Nav */
+    
+    overflow-x: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); 
+}
+
+/* Container của Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    height: 60px;
+    
+    /* Đưa hình bannermb.gif làm nền trải dài toàn bộ thanh header */
+    background-image: url('images/bannermb.gif'); 
+    background-size: cover;       /* Phủ kín toàn bộ chiều dài và rộng của header */
+    background-position: center;  /* Canh giữa ảnh nền */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    
+    /* CÁC LỆNH GHIM CỐ ĐỊNH TRÊN CÙNG */
+    position: fixed; 
+    top: 0;
+    
+    /* Đảm bảo chiều rộng khớp với khung app và được căn giữa */
+    width: 100%;
+    max-width: 500px; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+    z-index: 999;
+}
+
+/* Nhóm chứa Menu và Logo J88 bên trái */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Khoảng cách giữa nút 3 gạch và logo J88 */
+}
+
+/* Định dạng cho biểu tượng 3 gạch */
+.menu-icon i {
+    font-size: 34px;
+    color: #ff0202;
+    cursor: pointer;
+}
+
+/* Căn chỉnh kích thước Logo chính */
+.logo-img {
+    width: 190px; /* Thay đổi số này (vd: 110px, 150px) để chỉnh kích thước to/nhỏ */
+    height: auto; 
+    display: block;
+    
+    /* Dùng các lệnh dưới đây để dịch chuyển vị trí logo thủ công */
+    position: relative;
+    top: 0px;     /* Tăng số dương để đẩy xuống, số âm để kéo lên */
+    left: 0px;    /* Tăng số dương để đẩy sang phải, số âm để kéo sang trái */
+}
+
+/* Hoặc chỉnh khoảng cách trực tiếp từ thẻ chứa logo (.logo) */
+.logo { 
+    font-weight: bold; 
+    font-size: 34px; 
+    margin-left: 130px;
+    /* Dùng margin để dịch chuyển cả cụm logo nếu cần */
+    /* margin-top: 5px; */
+    /* margin-left: 10px; */
+}
+/* BANNER */
+.banner {
+    background: linear-gradient(to bottom, #fff, #c8e6c9);
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid #00bfa5;
+    border-bottom: 2px solid #00bfa5;
+}
+.banner-title { color: #d32f2f; font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+.banner-text { font-size: 10px; color: #333; text-align: left;}
+
+/* CONTAINER MENU ĐĂNG NHẬP */
+.top-menu {
+    display: flex;
+    padding: 15px 10px;
+    background-color: #fbfbfb;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 10px rgba(46, 196, 172, 0.1);
+    align-items: center;
+    justify-content: space-between; /* Dàn đều khoảng cách nếu cần */
+}
+
+/* NHÓM NÚT BẤM (Nằm ngang hàng) */
+.auth-buttons {
+    display: flex;
+    flex-direction: row; /* Chuyển từ dọc sang ngang */
+    align-items: center;
+    gap: 10px; /* Khoảng cách giữa 2 nút */
+    width: 100%;
+}
+
+/* Kiểu chung cho cả 2 nút */
+.btn {
+    flex: 1; /* Chia đều chiều rộng cho 2 nút */
+    padding: 10px 5px;
+    border-radius: 25px; /* Bo tròn hoàn toàn 2 đầu */
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* NÚT ĐĂNG KÝ (Màu đỏ đặc, chữ trắng) */
+.btn-register {
+    background-color: #e60012; /* Màu đỏ chủ đạo */
+    color: #ffffff;
+    border: none;
+}
+
+/* Nhãn hiệu ứng +88K gắn trên nút Đăng Ký */
+.badge-88k {
+    position: absolute;
+    top: -12px;
+    right: 5px;
+    background: linear-gradient(135deg, #fff68f, #ffcc00);
+    color: #b30000;
+    font-size: 11px;
+    font-weight: 900;
+    padding: 2px 6px;
+    border-radius: 8px 8px 8px 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* NÚT ĐĂNG NHẬP (Nền trắng, viền đỏ, chữ đỏ) */
+.btn-login {
+    background-color: #ffffff;
+    color: #e60012;
+    border: 1.5px solid #e60012; /* Viền đỏ bo quanh */
+}
+/* MAIN CONTENT AREA */
+.main-content {
+    display: flex;
+    background: #fff;
+}
+
+/* SIDEBAR (Trái) */
+.sidebar {
+    width: 95px; /* Chiều rộng thanh bên trái */
+    background: #f0f4f7; /* Màu nền xám/xanh nhạt giống ảnh gốc */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Khoảng cách giữa các ô */
+    padding: 10px; /* Khoảng cách từ viền vào trong */
+    
+    /* Thiết lập cho phép cuộn dọc */
+    overflow-y: auto; 
+    
+    /* Đặt chiều cao cố định để nội dung bên trong có thể cuộn (bạn có thể tinh chỉnh con số này) */
+    height: calc(100vh - 250px); 
+}
+
+/* Ẩn thanh cuộn (scrollbar) để giao diện app trông mượt hơn */
+.sidebar::-webkit-scrollbar {
+    display: none; /* Dành cho Chrome, Safari, Opera */
+}
+.sidebar {
+    -ms-overflow-style: none;  /* Dành cho IE và Edge */
+    scrollbar-width: none;  /* Dành cho Firefox */
+}
+
+/* Các ô chức năng trong Sidebar */
+.sidebar-item {
+    background: #fff;
+    border-radius: 15px; /* Bo tròn góc */
+    padding: 12px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Icon lúc bình thường (chưa click) */
+.sidebar-item i {
+    font-size: 24px;
+    color: #fc2b2b; /* Màu xanh ngọc */
+    margin-bottom: 8px;
+}
+
+/* Chữ lúc bình thường */
+.sidebar-item span {
+    font-size: 9px;
+    font-weight: bold;
+    color: #555;
+    text-align: center;
+}
+
+/* Hiệu ứng cho ô đang được chọn (ACTIVE) */
+.sidebar-item.active {
+    background: linear-gradient(180deg, #ff0000, #c90505);
+    box-shadow: 0 4px 8px rgba(37, 185, 153, 0.4); /* Bóng đổ màu xanh */
+}
+
+.sidebar-item.active i,
+.sidebar-item.active span {
+    color: #fff; /* Đổi màu chữ và icon sang trắng */
+}
+/* CONTENT AREA (Vùng hiển thị chính bên phải) */
+.content-area {
+    flex: 1;
+    padding: 10px;
+    background: #eaf8f5; /* Nền xanh nhạt đồng bộ bản gốc */
+    
+    /* Thiết lập thanh cuộn dọc cho vùng game nếu danh sách quá dài */
+    overflow-y: auto;
+    height: calc(100vh - 250px);
+}
+
+/* Ẩn thanh cuộn của content-area */
+.content-area::-webkit-scrollbar { display: none; }
+.content-area { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* TABS CONTAINER */
+.tabs-container {
+    display: flex;
+    justify-content: space-between;
+    
+    /* Đổi từ center thành flex-start để các nút bám sát mép trên của ảnh nền */
+    align-items: flex-start; 
+    margin-bottom: 15px;
+    background-image: url('images/thanh tabs phải.avif'); 
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    
+    /* Chỉnh lại padding: Ít ở trên (8px) để nút không bị đẩy xuống phần trắng, 
+       chừa nhiều ở dưới (15px) vì ảnh nền có độ cong và bóng đổ */
+    padding: 8px 10px 15px 10px; 
+    min-height: 50px; 
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+}
+
+/* Các thẻ Tab */
+.tab {
+    position: relative; 
+    padding: 6px 14px;
+    background: #ffffff;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800; /* In đậm chữ hơn một chút cho giống gốc */
+    color: #ff0000;
+    border: 1.5px solid transparent; /* Đặt sẵn viền để không bị giật khung khi active */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+}
+
+/* Tab đang chọn */
+.tab.active {
+    color: #ff0101; 
+    border: 1.5px solid #440000; /* Viền xanh ngọc */
+}
+
+/* Icon ngọn lửa */
+.tab.active i {
+    position: absolute;
+    top: 4px; /* Hạ xuống một chút để nằm gọn bên trong khung viền */
+    right: 4px; /* Kéo hẳn vào trong viền */
+    font-size: 30px;
+    color: #ff5101;
+}
+
+.tab:not(.active) i {
+    display: none; 
+}
+
+/* NÚT TẤT CẢ */
+.search-all {
+    background: transparent; 
+    color: rgb(194, 0, 0); 
+    padding: 0 15px 0 0; /* Chỉ đẩy margin bên phải */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 2px; /* Đẩy nhẹ nút này xuống để cân bằng với các tab bên trái */
+}
+
+/* Vòng tròn trắng bọc ngoài icon kính lúp */
+.search-icon {
+    background-color: white;
+    color: #ff0000;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Bo tròn tuyệt đối */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* Đổ bóng nhẹ cho vòng tròn */
+}
+/* GAME GRID (Lưới 3 cột) */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* GAME CARD */
+.game-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #bce8dd;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Vùng chứa ảnh game */
+.card-image-container {
+    width: 100%;
+    aspect-ratio: 12/10; /* Giữ khung vuông */
+    overflow: hidden;
+    background: #fcfbfb;
+}
+
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Phủ kín khung hình vuông mà không bị méo ảnh */
+    display: block;
+}
+
+/* Tiêu đề game bên dưới */
+.game-title {
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 6px 4px;
+    background: #fff;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+
+/* BOTTOM NAV (Ghim cố định dưới màn hình) */
+.bottom-nav {
+    position: fixed; 
+    bottom: 0;
+    width: 100%;
+    max-width: 500px; 
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ff0000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+}
+
+/* Các nút bấm */
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    color: #ff0000; /* Chữ mặc định màu đỏ */
+    background-color: #ffffff;
+    width: 20%; 
+    height: 100%;
+    transition: all 0.3s ease;
+    border-right: 1px solid #ffd1d1; /* Đường kẻ phân cách các mục */
+}
+
+.nav-item:last-child {
+    border-right: none;
+}
+
+/* Kích thước và màu icon FontAwesome mặc định */
+.nav-item i {
+    font-size: 20px;
+    color: #ff0000;
+}
+
+.nav-item span {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* TRẠNG THÁI ACTIVE (Đang chọn - Nền đỏ, chữ/icon vàng) */
+.nav-item.active {
+    background-color: #ff0000; 
+    color: #ffeb3b; 
+}
+
+.nav-item.active i {
+    color: #ffeb3b; 
+}
+/* SLIDER BANNER */
+.slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Giấu các ảnh bị tràn ra ngoài khung */
+    background-color: #f5f5f5;
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out; /* Hiệu ứng lướt ngang 0.5s */
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0; /* Ngăn ảnh bị bóp méo khi đưa vào flexbox */
+    object-fit: cover;
+    display: block;
+}
+
+/* Dấu chấm điều hướng */
+.slider-dots {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #ccc;
+}
+
+.dot.active {
+    background-color: #fff;
+    transform: scale(1.2); /* Dấu chấm đang chọn sẽ to hơn một chút */
+    border: none;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+/* PHẦN BANNER TIN TỨC - NẰM RIÊNG BIỆT BÊN DƯỚI */
+.news-section {
+    width: 100%;
+    padding: 10px 15px 20px 15px; /* Căn lề trái phải 15px, dưới 20px để không dính vào menu đáy */
+    background-color: #f0f4f7; /* Đồng bộ màu nền xám nhạt với sidebar */
+    display: flex;
+    justify-content: center;
+}
+
+.news-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; /* Bo góc ảnh giống thiết kế gốc */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ tạo chiều sâu */
+    display: block; 
+}
+/* =========================================
+   GIAO DIỆN MODAL ĐĂNG NHẬP / ĐĂNG KÝ
+========================================= */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 10000; /* Luôn nằm trên cùng */
+    display: none; /* Ẩn đi khi chưa bấm */
+    overflow-y: auto;
+}
+
+/* Kích hoạt hiển thị */
+.auth-modal.show { display: block; }
+
+.auth-modal-content {
+    padding: 20px 25px;
+    padding-bottom: 50px;
+}
+
+/* Header Modal */
+.auth-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    height: 50px; /* Thêm chiều cao cố định cho khung header nếu cần */
+}
+
+.back-btn {
+    position: absolute;
+    left: 10px; /* Tạo khoảng cách với mép trái */
+    width: 30px;
+    height: 30px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2; /* Đảm bảo nút back luôn nằm trên logo nếu có chồng lấn */
+}
+
+.back-btn .icon-img { 
+    width: 14px; 
+    height: auto; 
+}
+
+.auth-logo { 
+    width: 100%; 
+    text-align: center; 
+    position: relative;
+}
+
+/* CĂN CHỈNH KÍCH THƯỚC VÀ VỊ TRÍ LOGO THỦ CÔNG */
+.auth-logo .logo-img { 
+    width: 300px; /* Thay đổi con số này để chỉnh kích thước to/nhỏ của logo */
+    height: auto; 
+    
+    /* Dùng các lệnh dưới đây để dịch chuyển vị trí logo thủ công */
+    position: relative;
+    top: 0px;     /* Tăng số dương để đẩy logo xuống, số âm để kéo lên */
+    left: 90px;    /* Tăng số dương để dịch phải, số âm để dịch trái */
+    
+    /* Hoặc bạn có thể dùng margin nếu muốn dịch chuyển thô hơn: */
+    /* margin-top: 5px; */
+    /* margin-left: 20px; */
+}
+/* Banner Juventus */
+.auth-banner { 
+    display: flex;
+    align-items: center; /* Căn giữa chữ và ảnh theo chiều dọc */
+    justify-content: space-between; /* Đẩy chữ sang trái, ảnh sang phải */
+    margin-bottom: 35px; 
+}
+
+
+
+/* Định dạng kích thước cho logo bên phải */
+.auth-banner .banner-img { 
+    width: 100%; /* Giới hạn độ rộng của logo để nhường chỗ cho chữ */
+    max-width: 350px; /* Tránh logo bị vỡ hoặc quá to trên màn hình lớn */
+    height: auto; 
+    object-fit: contain;
+    margin-left: 80px;
+}
+/* Tabs Đăng Nhập / Đăng Ký */
+.auth-tabs {
+    display: flex;
+    background: #f4f6f9;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    padding: 4px;
+}
+.auth-tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #888;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.auth-tab.active {
+    background: linear-gradient(to right, #f83d3d, #ff0000);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(26, 188, 156, 0.3);
+}
+
+/* Form (Ẩn hiện theo Tab) */
+.auth-form { display: none; }
+.auth-form.active { display: block; }
+
+/* Các ô Input */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f4f6f9;
+    border-radius: 8px;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+}
+.input-icon { width: 20px; height: 20px; object-fit: contain; margin-right: 8px;}
+.input-icon-right { width: 20px; height: 20px; object-fit: contain; cursor: pointer; margin-left: auto;}
+.required { color: red; margin-right: 8px; font-weight: bold; }
+.phone-prefix { border-right: 1px solid #ccc; padding-right: 8px; margin-right: 8px; color: #555; font-weight: bold;}
+.input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+}
+
+/* Các tùy chọn và Ghi nhớ */
+.login-methods {
+    display: flex;
+    gap: 15px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+.method { display: flex; align-items: center; gap: 5px; color: #888; }
+.method.active { color: #9b0000; }
+.method-icon { width: 14px; height: 14px; }
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 25px;
+}
+/* Nhuộm màu ô Checkbox */
+.checkbox-group input[type="checkbox"] { accent-color: #ff0000; width: 16px; height: 16px;}
+.checkbox-group a { color: #720000; text-decoration: none; }
+
+/* Thông báo lỗi / Độ mạnh MK */
+.password-strength { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #888; margin-top: -10px; margin-bottom: 15px;}
+.strength-bar { width: 25px; height: 4px; background: #ddd; border-radius: 2px; }
+.warning-text { color: #f39c12; font-size: 11px; margin-top: -10px; margin-bottom: 15px; }
+
+/* Nút Submit */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #ff2a2a, #ca1a1a);
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgb(248, 2, 2);
+}
