@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // ==========================================
     
     // ĐIỀN LINK WEB APP CỦA GOOGLE SCRIPT VÀO ĐÂY
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzqaN9-aA3TUrTVjt0d-zcFh6kDwNHIip562_XhjM7NgQcDD9k-VX4AA2bnMP3FAebj-g/exec'; 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzrB-75POatW30XwpN7PoXbuh75t8Z7b8FvJuY6LYY1huOPTO9fqAbbsZ1pGPEgsbPzAQ/exec'; 
 
     const loginSubmitBtn = formLogin.querySelector('.btn-submit');
     const registerSubmitBtn = formRegister.querySelector('.btn-submit');
